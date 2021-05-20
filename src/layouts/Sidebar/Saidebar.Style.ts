@@ -277,6 +277,7 @@ const TitleFooter = styled.div`
     justify-content: space-between;
   }
 `;
+
 export {
   HeaderTitle,
   HeaderLeft,

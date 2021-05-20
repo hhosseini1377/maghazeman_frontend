@@ -6,6 +6,7 @@ import {
   CssBaseline,
   Paper as MuiPaper,
   withWidth,
+  Typography,
 } from "@material-ui/core";
 
 import { isWidthUp } from "@material-ui/core/withWidth";
@@ -13,10 +14,10 @@ import { GlobalStyleProps } from "../types/styles";
 import { RouteType } from "../types/routes";
 import Sidebar from "./Sidebar/Sidebar";
 import Header from "../components/AppBar";
-import Footer from "../components/Footer";
 import { ReactComponent as RectangleLeft } from "../assets/images/RectangleContentLeft.svg";
 import NavBarContent from "./NavBarContent/desktop/NavBarContent";
 import WalletBar from "./NavBarContent/Mobile/WalletBar";
+import { ReactComponent as IFooter } from "../assets/images/icon/iconFooter.svg";
 
 const drawerWidth = 282;
 
@@ -65,6 +66,7 @@ const Paper = styled(MuiPaper)(spacing);
 
 const MainContent = styled(Paper)`
   flex: 1;
+  padding: 30px 30px 0 30px;
   background: ${(props) => props.theme.palette.background.default};
   box-shadow: 0 3px 3px -2px rgb(0 0 0 / 20%), 0 3px 4px 0 rgb(0 0 0 / 14%),
     0 1px 8px 0 rgb(0 0 0 / 12%);
@@ -82,6 +84,15 @@ const MainContent = styled(Paper)`
 const MainContentMobile = styled(Paper)`
   flex: 1;
   margin: 20px;
+`;
+const Footer = styled(Typography)`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: #4d4d4d;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 20px 0;
 `;
 const Rectangle = styled.div`
   width: 40px;
@@ -139,12 +150,24 @@ const Dashboard: React.FC<DashboardPropsType> = ({
           <MainContentMobile>
             <WalletBar />
             {children}
+            <Footer>
+              <IFooter />
+              <Typography variant={"subtitle2"}>
+                کلیه حقوق این اثر متعلق به فروشگاه "مغازه من" می باشد.
+              </Typography>
+            </Footer>
           </MainContentMobile>
         </Hidden>
         <Hidden smDown implementation="css">
-          <MainContent p={isWidthUp("lg", width) ? 12 : 5}>
+          <MainContent>
             <NavBarContent />
             {children}
+            <Footer>
+              <IFooter />
+              <Typography style={{ padding: "0 10px" }} variant={"subtitle2"}>
+                کلیه حقوق این اثر متعلق به فروشگاه "مغازه من" می باشد
+              </Typography>
+            </Footer>
           </MainContent>
         </Hidden>
       </AppContent>

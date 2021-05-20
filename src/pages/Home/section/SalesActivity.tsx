@@ -37,7 +37,7 @@ const SalesActivity: FunctionComponent<Props> = (props) => {
       <Grid container spacing={5}>
         <Grid item lg={10} xs={12}>
           <TitleComponent title={"میزان فروش و فعالیت"} />
-          <Grid container>
+          <Grid container spacing={5}>
             <Grid item lg={6} xs={12}>
               <LineChart />
             </Grid>
