@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
 
 const Root = styled.div`
   border-radius: 40px;
-  background: rgba(32, 212, 122, 0.57);
+  background: rgba(12, 118, 95, 0.57);
   max-width: 420px;
   margin: 0 auto;
   justify-content: center;
