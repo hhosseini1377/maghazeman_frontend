@@ -64,7 +64,7 @@ const typography: TypographyOptions = {
     textTransform: "none",
   },
   subtitle2: {
-    fontSize: "18px",
+    fontSize: "16px",
     fontWeight: 700,
   },
   subtitle1: {

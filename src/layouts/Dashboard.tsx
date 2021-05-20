@@ -18,7 +18,7 @@ import { ReactComponent as RectangleLeft } from "../assets/images/RectangleConte
 import NavBarContent from "./NavBarContent/desktop/NavBarContent";
 import WalletBar from "./NavBarContent/Mobile/WalletBar";
 
-const drawerWidth = 382;
+const drawerWidth = 282;
 
 const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
   html,
@@ -41,10 +41,14 @@ const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
 const Root = styled.div`
   display: flex;
   min-height: 100vh;
+  ${(props) => props.theme.breakpoints.down("md")} {
+    display: block;
+  }
 `;
 
 const Drawer = styled.div`
   ${(props) => props.theme.breakpoints.up("md")} {
+    display: flex;
     width: ${drawerWidth}px;
     flex-shrink: 0;
   }
@@ -109,16 +113,17 @@ const Dashboard: React.FC<DashboardPropsType> = ({
       <CssBaseline />
       <GlobalStyle />
       <Drawer>
-        <Hidden mdUp implementation="js">
+        <Hidden mdUp>
           <Sidebar
             routes={routes}
-            PaperProps={{ style: { width: drawerWidth } }}
+            anchor={"right"}
             variant="temporary"
+            PaperProps={{ style: { width: drawerWidth } }}
             open={mobileOpen}
             onClose={handleDrawerToggle}
           />
         </Hidden>
-        <Hidden smDown implementation="css">
+        <Hidden smDown>
           <Sidebar
             routes={routes}
             PaperProps={{ style: { width: drawerWidth } }}
@@ -126,10 +131,10 @@ const Dashboard: React.FC<DashboardPropsType> = ({
         </Hidden>
       </Drawer>
       <AppContent>
-        <Hidden smDown implementation="css">
+        <Hidden smDown>
           <Rectangle />
         </Hidden>
-        <Hidden mdUp implementation="css">
+        <Hidden mdUp>
           <Header onDrawerToggle={handleDrawerToggle} />
           <MainContentMobile>
             <WalletBar />

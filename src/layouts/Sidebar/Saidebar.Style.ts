@@ -16,6 +16,7 @@ import { ExpandLess, ExpandMore } from "@material-ui/icons";
 
 const Drawer = styled(MuiDrawer)`
   border-right: 0;
+  overflow-x: hidden;
 
   > div {
     border-right: 0;
@@ -49,8 +50,8 @@ const Brand = styled(ListItem)<{
   min-height: 56px;
   padding-left: ${(props) => props.theme.spacing(6)}px;
   padding-right: ${(props) => props.theme.spacing(6)}px;
-  margin-top: ${(props) => props.theme.spacing(9)}px;
-  margin-bottom: ${(props) => props.theme.spacing(9)}px;
+  margin-top: ${(props) => props.theme.spacing(4)}px;
+  margin-bottom: ${(props) => props.theme.spacing(4)}px;
   justify-content: center;
   cursor: pointer;
 
@@ -81,8 +82,8 @@ type CategoryType = {
 };
 
 const Category = styled(ListItem)<CategoryType>`
-  padding-top: ${(props) => props.theme.spacing(3)}px;
-  padding-bottom: ${(props) => props.theme.spacing(3)}px;
+  padding-top: ${(props) => props.theme.spacing(2)}px;
+  padding-bottom: ${(props) => props.theme.spacing(2)}px;
   padding-left: ${(props) => props.theme.spacing(3)}px;
   padding-right: ${(props) => props.theme.spacing(7)}px;
   font-weight: ${(props) => props.theme.typography.fontWeightRegular};
@@ -265,7 +266,7 @@ const TitleFooter = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   & div {
     //background-color: ${(props) => props.theme.sidebar.header.hover};
     background: linear-gradient(100.39deg, #3eec94 0.7%, #0dd570 100%);

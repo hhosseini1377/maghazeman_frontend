@@ -94,6 +94,7 @@ type SidebarLinkPropsType = {
   name: string;
   to: string;
   badge?: string | number;
+  onClose?: () => void;
   icon?: JSX.Element;
 };
 
@@ -101,6 +102,7 @@ const SidebarLink: React.FC<SidebarLinkPropsType> = ({
   name,
   to,
   badge,
+  onClose,
   icon,
 }) => {
   return (
@@ -111,6 +113,7 @@ const SidebarLink: React.FC<SidebarLinkPropsType> = ({
       exact
       to={to}
       activeClassName="active"
+      onClick={onClose}
     >
       <LinkText>{name}</LinkText>
       {badge ? <LinkBadge label={badge} /> : ""}
@@ -125,11 +128,12 @@ type SidebarPropsType = {
     pathname: string;
   };
   routes: Array<RouteType>;
-  PaperProps: {
+  PaperProps?: {
     style: {
       width: number;
     };
   };
+  anchor?: string;
   variant?: "permanent" | "persistent" | "temporary";
   open?: boolean;
   onClose?: () => void;
@@ -139,6 +143,8 @@ const Sidebar: React.FC<RouteComponentProps & SidebarPropsType> = ({
   classes,
   staticContext,
   location,
+  anchor,
+  onClose,
   ...rest
 }) => {
   type tplotOptions = {
@@ -186,7 +192,7 @@ const Sidebar: React.FC<RouteComponentProps & SidebarPropsType> = ({
   };
 
   return (
-    <Drawer variant="permanent" {...rest}>
+    <Drawer variant="permanent" onClose={onClose} {...rest}>
       <Brand component={NavLink} to="/" button>
         <Logo />
       </Brand>
@@ -246,6 +252,7 @@ const Sidebar: React.FC<RouteComponentProps & SidebarPropsType> = ({
                       {category.children.map(
                         (route: RouteChildType, index: number) => (
                           <SidebarLink
+                            {...onClose}
                             key={index}
                             name={route.name}
                             to={route.path}
