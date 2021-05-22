@@ -1,10 +1,8 @@
 import React from "react";
 import { withTheme } from "styled-components/macro";
-
 import { CardContent, Typography } from "@material-ui/core";
-
-import { defaults } from "react-chartjs-2";
 import { makeStyles } from "@material-ui/core/styles";
+import Chart from "chart.js";
 import { Card, Spacer, ChartWrapper, DivSort } from "./CustomChart.Style.";
 import { ICustomChart } from "./CustomChart.type";
 import { CHART_LIST } from "./common";
@@ -33,9 +31,9 @@ function CustomChart({
     labels: dataChart?.labels,
     datasets: dataChart?.data,
   };
-
+  Chart.defaults.global.defaultFontFamily = "IRANSans";
   const ComponentChart = CHART_LIST[typeChart].component;
-  defaults.global.defaultFontFamily = "IRANSans";
+
   return (
     <Card mb={1} className={classes.root}>
       <CardContent>

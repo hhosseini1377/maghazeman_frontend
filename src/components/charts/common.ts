@@ -10,11 +10,14 @@ export let CHART_LIST: any = {
     name: "Bar",
     component: Bar,
     options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      cornerRadius: 2,
+      cornerRadius: 5,
       legend: {
         display: true,
+        labels: {
+          usePointStyle: true,
+          boxWidth: 7,
+          textAlign: "center",
+        },
       },
       scales: {
         yAxes: [
@@ -62,10 +65,11 @@ export let CHART_LIST: any = {
       maintainAspectRatio: false,
       legend: {
         display: true,
-        rtl: true,
-        textDirection: "rtl",
-        align: "right",
-        labels: { padding: 10, textAlign: "center" },
+        labels: {
+          textAlign: "center",
+          usePointStyle: true,
+          boxWidth: 2,
+        },
       },
       tooltips: {
         intersect: false,

@@ -38,7 +38,7 @@ const typography: TypographyOptions = {
   },
   h4: {
     fontSize: "1.125rem",
-    fontWeight: 500,
+    fontWeight: 700,
     lineHeight: 1.25,
   },
   h5: {

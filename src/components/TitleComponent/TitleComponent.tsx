@@ -18,7 +18,7 @@ const TitleComponent: FunctionComponent<Props> = ({ title }) => {
   const classes = useStyle();
   return (
     <>
-      <Typography variant={"h3"} className={classes.root}>
+      <Typography variant={"h4"} className={classes.root}>
         {title}
       </Typography>
     </>
