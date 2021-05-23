@@ -24,6 +24,9 @@ const Drawer = styled(MuiDrawer)`
 `;
 
 const Scrollbar = styled(PerfectScrollbar)`
+  @media (max-width: 900px) {
+    position: initial;
+  }
   background-color: ${(props) => props.theme.sidebar.background};
   border-right: 1px solid rgba(0, 0, 0, 0.12);
 `;

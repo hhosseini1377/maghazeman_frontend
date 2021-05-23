@@ -14,6 +14,7 @@ import {
   ListItem,
   ListItemText,
   Typography,
+  Hidden,
 } from "@material-ui/core";
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
 import PerfectScrollbar from "react-perfect-scrollbar";
@@ -48,6 +49,7 @@ import { ReactComponent as SidebarUserImage } from "../components/SidebarLogo/Lo
 import HoverRating from "../../components/Rating/Rating";
 import { ReactComponent as Logo } from "../../assets/images/LogoSidBar.svg";
 import { persianNumbers } from "../../utils/persian-text";
+import "react-perfect-scrollbar/dist/css/styles.css";
 
 type SidebarCategoryPropsType = {
   name: string;
@@ -193,10 +195,11 @@ const Sidebar: React.FC<RouteComponentProps & SidebarPropsType> = ({
 
   return (
     <Drawer variant="permanent" onClose={onClose} {...rest}>
-      <Brand component={NavLink} to="/" button>
-        <Logo />
-      </Brand>
-
+      <Hidden smDown>
+        <Brand component={NavLink} to="/" button>
+          <Logo />
+        </Brand>
+      </Hidden>
       <Scrollbar>
         <HeaderSidebar>
           <HeaderBoxTitle>
